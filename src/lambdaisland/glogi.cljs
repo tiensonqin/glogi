@@ -151,7 +151,7 @@
   use [lambdaisland.glogi.console/install!] for a version that plays nicely with
   cljs-devtools."
   []
-  (when-let [instance Console/instance]
+  (when-let [instance ^js Console/instance]
     (.setCapturing instance true)
     (let [instance (Console.)]
       (set! Console/instance instance)

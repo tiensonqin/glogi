@@ -1,0 +1,3 @@
+{
+ :externs ["lambdaisland/externs.js"]
+ }
