@@ -32,7 +32,9 @@
                           js/console.log)]
       (prn {:method method
             :method-name method-name
-            :level level})
+            :level level
+            :foramt format
+            :record record})
       (apply method (format record))
       (when exception
         (method (str "[" logger-name "]") (str exception) "\n" (.-stack exception))))))
