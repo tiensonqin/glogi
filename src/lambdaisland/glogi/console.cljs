@@ -30,6 +30,9 @@
     (let [method-name (log-method level)
           method      (or (gobj/get js/console method-name)
                           js/console.log)]
+      (prn {:method method
+            :method-name method-name
+            :level level})
       (apply method (format record))
       (when exception
         (method (str "[" logger-name "]") (str exception) "\n" (.-stack exception))))))
