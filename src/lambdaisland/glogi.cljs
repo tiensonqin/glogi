@@ -16,22 +16,22 @@
 ;; can retain backward compatibility. The static method call is the newer
 ;; version.
 
-(defn- goog-setLevel [logger level]
+(defn- goog-setLevel [^goog.debug.logger logger level]
   (if (exists? glog/setLevel)
     (^:cljs.analyzer/no-resolve glog/setLevel logger level)
     (.setLevel logger level)))
 
-(defn- goog-logRecord [logger record]
+(defn- goog-logRecord [^goog.debug.logger logger record]
   (if (exists? glog/publishLogRecord)
     (^:cljs.analyzer/no-resolve glog/publishLogRecord logger record)
     (.logRecord logger record)))
 
-(defn- goog-addHandler [logger handler]
+(defn- goog-addHandler [^goog.debug.logger logger handler]
   (if (exists? glog/addHandler)
     (glog/addHandler logger handler)
     (.addHandler logger handler)))
 
-(defn- goog-removeHandler [logger handler]
+(defn- goog-removeHandler [^goog.debug.logger logger handler]
   (if (exists? glog/removeHandler)
     (glog/removeHandler logger handler)
     (.removeHandler logger handler)))
